@@ -1,0 +1,73 @@
+{
+    "manifest_version": 3,
+    "name": "VibeChrome - AI Voice Reader",
+    "version": "1.0.0",
+    "description": "Listen to any webpage with VibeVoice AI. Select text and hear it read aloud with natural, human-like voices.",
+    "permissions": [
+        "activeTab",
+        "storage",
+        "scripting",
+        "contextMenus",
+        "offscreen",
+        "tabs"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        },
+        "default_title": "VibeChrome - AI Voice Reader"
+    },
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "css": [
+                "content.css"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "commands": {
+        "read-selection": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+R",
+                "mac": "Command+Shift+R"
+            },
+            "description": "Read selected text"
+        },
+        "save-bookmark": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+B",
+                "mac": "Command+Shift+B"
+            },
+            "description": "Save bookmark"
+        },
+        "toggle-playback": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+Space",
+                "mac": "Command+Shift+Space"
+            },
+            "description": "Play/Pause reading"
+        }
+    },
+    "options_page": "settings.html"
+}
