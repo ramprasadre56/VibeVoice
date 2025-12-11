@@ -37,7 +37,38 @@ class VibeContentScript {
         this.createHighlightOverlay();
         this.setupEventListeners();
         this.setupMessageListener();
+        this.setupStorageListener();
         console.log('[VibeChrome] Content script initialized');
+    }
+
+    setupStorageListener() {
+        // Listen for storage changes (real-time settings sync)
+        chrome.storage.onChanged.addListener((changes, namespace) => {
+            if (namespace === 'local') {
+                for (const [key, { newValue }] of Object.entries(changes)) {
+                    if (this.settings.hasOwnProperty(key)) {
+                        this.settings[key] = newValue;
+                        console.log(`[VibeChrome] Setting updated: ${key} = ${newValue}`);
+                    }
+                }
+                // Update UI elements based on new settings
+                this.applySettings();
+            }
+        });
+    }
+
+    applySettings() {
+        // Show/hide top bar based on settings
+        if (this.topBar) {
+            if (this.settings.topBarEnabled === false) {
+                this.topBar.classList.remove('visible');
+            }
+        }
+
+        // Show/hide floating button based on settings
+        if (this.floatingButton && this.settings.floatingButtonEnabled === false) {
+            this.floatingButton.style.display = 'none';
+        }
     }
 
     async loadSettings() {
@@ -85,29 +116,20 @@ class VibeContentScript {
         this.topBar.id = 'vibechrome-top-bar';
         this.topBar.className = 'vibechrome-top-bar';
         this.topBar.innerHTML = `
-            <div class="vibechrome-topbar-left">
-                <button class="vibechrome-topbar-play" id="vibechrome-topbar-play">
-                    <svg class="vibechrome-play-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
-                    <svg class="vibechrome-pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
-                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-                    </svg>
-                </button>
-                <span class="vibechrome-topbar-text">Listen to This Page</span>
-            </div>
-            <div class="vibechrome-topbar-right">
-                <button class="vibechrome-topbar-btn" id="vibechrome-topbar-settings" title="Settings">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                        <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
-                    </svg>
-                </button>
-                <button class="vibechrome-topbar-close" id="vibechrome-topbar-close" title="Close">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                    </svg>
-                </button>
-            </div>
+            <button class="vibechrome-topbar-play" id="vibechrome-topbar-play">
+                <svg class="vibechrome-play-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+                <svg class="vibechrome-pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                </svg>
+            </button>
+            <span class="vibechrome-topbar-text">Listen to This Page</span>
+            <button class="vibechrome-topbar-close" id="vibechrome-topbar-close" title="Close">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </button>
         `;
         document.body.appendChild(this.topBar);
 
@@ -151,14 +173,7 @@ class VibeContentScript {
         }
     }
 
-    readFullPage() {
-        const pageText = this.extractPageText();
-        if (!pageText) return;
-
-        this.originalText = pageText;
-        this.currentSelection = pageText;
-        this.speakText(pageText);
-    }
+    // readFullPage is defined later in the class
 
     showTopBar() {
         if (this.topBar) {
@@ -294,6 +309,16 @@ class VibeContentScript {
 
                 case 'SAVE_BOOKMARK':
                     this.saveBookmark();
+                    sendResponse({ success: true });
+                    break;
+
+                case 'READ_PAGE':
+                    this.readFullPage();
+                    sendResponse({ success: true });
+                    break;
+
+                case 'READ_SELECTION':
+                    this.readSelection();
                     sendResponse({ success: true });
                     break;
 
@@ -612,6 +637,36 @@ class VibeContentScript {
         } catch (e) {
             console.log('[VibeChrome] Extension context invalidated.');
         }
+    }
+
+    readFullPage() {
+        if (this.isPlaying) {
+            this.safeMessage({ type: 'STOP' });
+            return;
+        }
+
+        const text = this.extractPageText();
+        if (!text || text.length < 10) {
+            console.log('[VibeChrome] No readable text found on page');
+            return;
+        }
+
+        console.log('[VibeChrome] Reading page, text length:', text.length);
+        this.originalText = text;
+        this.speakText(text);
+    }
+
+    readElement(element) {
+        if (this.isPlaying) {
+            this.safeMessage({ type: 'STOP' });
+            return;
+        }
+
+        const text = element.innerText.trim();
+        if (!text) return;
+
+        this.originalText = text;
+        this.speakText(text);
     }
 
     extractPageText() {

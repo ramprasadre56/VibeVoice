@@ -3,168 +3,159 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=600, initial-scale=1.0">
-    <title>VibeChrome Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeChrome - AI Voice Reader</title>
     <link rel="stylesheet" href="settings.css">
 </head>
 
 <body>
-    <div class="settings-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
+    <div class="settings-layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
             <div class="sidebar-header">
-                <div class="logo">
-                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none">
-                        <path
-                            d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
-                            fill="currentColor" />
-                    </svg>
-                    <span class="logo-text">VibeChrome</span>
-                </div>
+                <svg class="sidebar-logo" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+                        fill="currentColor" />
+                </svg>
+                <span class="sidebar-title">VibeChrome</span>
             </div>
 
-            <nav class="sidebar-nav">
-                <button class="nav-item active" data-section="general">
-                    <svg viewBox="0 0 24 24" fill="none">
+            <ul class="nav-list">
+                <li class="nav-item active" data-section="general">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
                         <path
-                            d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"
-                            fill="currentColor" />
+                            d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
                     </svg>
                     <span>General</span>
-                </button>
-
-                <button class="nav-item" data-section="highlighting">
-                    <svg viewBox="0 0 24 24" fill="none">
-                        <path d="M9.62 12L12 5.67 14.38 12M11 3L5.5 17h2.25l1.12-3h6.25l1.12 3h2.25L13 3h-2z"
-                            fill="currentColor" />
+                </li>
+                <li class="nav-item" data-section="highlighting">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M16.6 3.19l4.22 4.22-1.41 1.41-4.22-4.22 1.41-1.41zM2 17.75V22h4.25l11.89-11.89-4.24-4.24L2 17.75zm2.75.94l-.71-.71 9.19-9.19.71.71-9.19 9.19z" />
                     </svg>
                     <span>Text Highlighting</span>
-                </button>
-
-                <button class="nav-item" data-section="click-to-listen">
-                    <svg viewBox="0 0 24 24" fill="none">
-                        <path d="M8 5v14l11-7z" fill="currentColor" />
+                </li>
+                <li class="nav-item" data-section="click">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 4c4.41 0 8 3.59 8 8s-3.59 8-8 8-8-3.59-8-8 3.59-8 8-8m0-2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
                     </svg>
                     <span>Click to Listen</span>
-                </button>
-
-                <button class="nav-item" data-section="hover-to-listen">
-                    <svg viewBox="0 0 24 24" fill="none">
+                </li>
+                <li class="nav-item" data-section="hover">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
                         <path
-                            d="M13 1.07V9h7c0-4.08-3.05-7.44-7-7.93zM4 15c0 4.42 3.58 8 8 8s8-3.58 8-8v-4H4v4zm7-13.93C7.05 1.56 4 4.92 4 9h7V1.07z"
-                            fill="currentColor" />
+                            d="M13 1.07V9h7c0-4.08-3.05-7.44-7-7.93zM4 15c0 4.42 3.58 8 8 8s8-3.58 8-8v-4H4v4zm7-13.93C7.05 1.56 4 4.92 4 9h7V1.07z" />
                     </svg>
                     <span>Hover to Listen</span>
-                </button>
-
-                <button class="nav-item" data-section="auto-scroll">
-                    <svg viewBox="0 0 24 24" fill="none">
+                </li>
+                <li class="nav-item" data-section="scroll">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
                         <path
-                            d="M12 5.83L15.17 9l1.41-1.41L12 3 7.41 7.59 8.83 9 12 5.83zm0 12.34L8.83 15l-1.41 1.41L12 21l4.59-4.59L15.17 15 12 18.17z"
-                            fill="currentColor" />
+                            d="M12 5.83L15.17 9l1.41-1.41L12 3 7.41 7.59 8.83 9 12 5.83zm0 12.34L8.83 15l-1.41 1.41L12 21l4.59-4.59L15.17 15 12 18.17z" />
                     </svg>
                     <span>Auto Scroll</span>
-                </button>
-
-                <button class="nav-item" data-section="keyboard">
-                    <svg viewBox="0 0 24 24" fill="none">
+                </li>
+                <li class="nav-item" data-section="shortcuts">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
                         <path
-                            d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm9 7H8v-2h8v2zm0-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z"
-                            fill="currentColor" />
+                            d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm9 7H8v-2h8v2zm0-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z" />
                     </svg>
                     <span>Keyboard Shortcuts</span>
-                </button>
-
-                <button class="nav-item" data-section="player">
-                    <svg viewBox="0 0 24 24" fill="none">
+                </li>
+                <li class="nav-item" data-section="visibility">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
                         <path
-                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
-                            fill="currentColor" />
+                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
                     </svg>
                     <span>Player Visibility</span>
-                </button>
-            </nav>
+                </li>
+            </ul>
+        </nav>
 
-            <div class="sidebar-footer">
-                <div class="version">Version 1.0.0</div>
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <button class="close-btn" id="closeSettings">
-                <svg viewBox="0 0 24 24" fill="none">
+        <!-- Main Content Area -->
+        <main class="settings-main">
+            <button class="close-btn" id="closeSettings" title="Close">
+                <svg viewBox="0 0 24 24" fill="currentColor">
                     <path
-                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                        fill="currentColor" />
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
                 </svg>
             </button>
 
-            <!-- General Settings -->
+            <!-- General Section -->
             <section id="section-general" class="settings-section active">
                 <h1 class="section-title">General Settings</h1>
 
-                <div class="settings-card">
+                <div class="setting-card">
                     <div class="setting-row">
                         <div class="setting-info">
                             <h3>Server URL</h3>
                             <p>Connect to your VibeVoice TTS server</p>
                         </div>
-                        <input type="text" id="serverUrl" class="text-input" placeholder="http://localhost:3000">
+                        <div class="setting-control">
+                            <input type="text" id="serverUrl" class="text-input" placeholder="https://your-server.com">
+                            <span class="connection-status" id="connectionStatus">Checking...</span>
+                        </div>
                     </div>
+                </div>
 
+                <div class="setting-card">
                     <div class="setting-row">
                         <div class="setting-info">
                             <h3>Default Voice</h3>
                             <p>Select your preferred voice</p>
                         </div>
-                        <select id="defaultVoice" class="select-input">
-                            <option value="">Loading voices...</option>
-                        </select>
+                        <div class="setting-control">
+                            <select id="defaultVoice" class="select-input">
+                                <option value="">Loading voices...</option>
+                            </select>
+                        </div>
                     </div>
+                </div>
 
+                <div class="setting-card">
                     <div class="setting-row">
                         <div class="setting-info">
                             <h3>Default Speed</h3>
-                            <p>Reading speed: <span id="speedValue">1.0x</span></p>
+                            <p>Reading speed: <strong id="speedValue">1.0x</strong></p>
                         </div>
-                        <input type="range" id="defaultSpeed" class="range-slider" min="0.5" max="2.0" step="0.1"
-                            value="1.0">
+                        <div class="setting-control slider-control">
+                            <span class="slider-label">0.5x</span>
+                            <input type="range" id="defaultSpeed" class="slider-input" min="0.5" max="2.0" step="0.1"
+                                value="1.0">
+                            <span class="slider-label">2.0x</span>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Text Highlighting -->
+            <!-- Text Highlighting Section -->
             <section id="section-highlighting" class="settings-section">
                 <h1 class="section-title">Text Highlighting</h1>
 
-                <div class="feature-banner">
-                    <div class="feature-info">
-                        <h2>What is Text Highlighting?</h2>
-                        <ul>
-                            <li>✓ Highlights text as you listen</li>
-                            <li>✓ Allows you to focus on spoken text</li>
-                            <li>✓ Improves your comprehension</li>
-                            <li>✓ Helps to read more without distraction</li>
-                        </ul>
-                    </div>
-                    <div class="feature-preview">
-                        See real-time highlights of the text being read aloud to improve your comprehension.
-                    </div>
+                <div class="feature-info">
+                    <h2>What is Text Highlighting?</h2>
+                    <ul>
+                        <li>✓ Highlights text as you listen</li>
+                        <li>✓ Allows you to focus on spoken text</li>
+                        <li>✓ Improves your comprehension</li>
+                    </ul>
                 </div>
 
-                <div class="settings-card">
+                <div class="setting-card">
                     <div class="setting-row">
                         <div class="setting-info">
                             <h3>Text Highlighting</h3>
                             <p>Enabled on all websites</p>
                         </div>
-                        <label class="toggle">
-                            <input type="checkbox" id="highlightingEnabled" checked>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="highlightingEnabled">
                             <span class="toggle-slider"></span>
                         </label>
                     </div>
+                </div>
 
+                <div class="setting-card">
                     <div class="setting-row">
                         <div class="setting-info">
                             <h3>Highlight Style</h3>
@@ -179,79 +170,116 @@
                 </div>
             </section>
 
-            <!-- Click to Listen -->
-            <section id="section-click-to-listen" class="settings-section">
+            <!-- Click to Listen Section -->
+            <section id="section-click" class="settings-section">
                 <h1 class="section-title">Click to Listen</h1>
 
-                <div class="settings-card">
+                <div class="feature-info">
+                    <h2>What is Click to Listen?</h2>
+                    <ul>
+                        <li>✓ Click on any paragraph to hear it</li>
+                        <li>✓ Quick way to read specific content</li>
+                        <li>✓ Works on all websites</li>
+                    </ul>
+                </div>
+
+                <div class="setting-card">
                     <div class="setting-row">
                         <div class="setting-info">
                             <h3>Click to Listen</h3>
-                            <p>Click any text element to start reading</p>
+                            <p>Click any text to start reading</p>
                         </div>
-                        <label class="toggle">
+                        <label class="toggle-switch">
                             <input type="checkbox" id="clickToListenEnabled">
                             <span class="toggle-slider"></span>
                         </label>
                     </div>
+                </div>
 
+                <div class="setting-card">
                     <div class="setting-row">
                         <div class="setting-info">
-                            <h3>Read Element</h3>
-                            <p>What to read when clicking</p>
+                            <h3>Click Target</h3>
+                            <p>What to read when clicked</p>
                         </div>
                         <select id="clickElement" class="select-input">
-                            <option value="paragraph">Paragraph only</option>
-                            <option value="section">Entire section</option>
-                            <option value="page">Full page</option>
+                            <option value="paragraph">Paragraph</option>
+                            <option value="sentence">Sentence only</option>
+                            <option value="article">Entire article</option>
                         </select>
                     </div>
                 </div>
             </section>
 
-            <!-- Hover to Listen -->
-            <section id="section-hover-to-listen" class="settings-section">
+            <!-- Hover to Listen Section -->
+            <section id="section-hover" class="settings-section">
                 <h1 class="section-title">Hover to Listen</h1>
 
-                <div class="settings-card">
+                <div class="feature-info">
+                    <h2>What is Hover to Listen?</h2>
+                    <ul>
+                        <li>✓ Hover over text to hear it</li>
+                        <li>✓ Hands-free reading experience</li>
+                        <li>✓ Customizable delay time</li>
+                    </ul>
+                </div>
+
+                <div class="setting-card">
                     <div class="setting-row">
                         <div class="setting-info">
                             <h3>Hover to Listen</h3>
-                            <p>Hover over text to start reading automatically</p>
+                            <p>Hover over text to start reading</p>
                         </div>
-                        <label class="toggle">
+                        <label class="toggle-switch">
                             <input type="checkbox" id="hoverToListenEnabled">
                             <span class="toggle-slider"></span>
                         </label>
                     </div>
+                </div>
 
+                <div class="setting-card">
                     <div class="setting-row">
                         <div class="setting-info">
                             <h3>Hover Delay</h3>
-                            <p>Wait time before reading: <span id="hoverDelayValue">1.5s</span></p>
+                            <p>Wait <strong id="hoverDelayValue">1.5s</strong> before reading</p>
                         </div>
-                        <input type="range" id="hoverDelay" class="range-slider" min="0.5" max="3.0" step="0.5"
-                            value="1.5">
+                        <div class="setting-control slider-control">
+                            <span class="slider-label">0.5s</span>
+                            <input type="range" id="hoverDelay" class="slider-input" min="0.5" max="3.0" step="0.5"
+                                value="1.5">
+                            <span class="slider-label">3.0s</span>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Auto Scroll -->
-            <section id="section-auto-scroll" class="settings-section">
+            <!-- Auto Scroll Section -->
+            <section id="section-scroll" class="settings-section">
                 <h1 class="section-title">Auto Scroll</h1>
 
-                <div class="settings-card">
+                <div class="feature-info">
+                    <h2>What is Auto Scroll?</h2>
+                    <ul>
+                        <li>✓ Automatically scroll to follow text</li>
+                        <li>✓ Keep focused on what's being read</li>
+                        <li>✓ Smooth or instant scrolling</li>
+                    </ul>
+                </div>
+
+                <div class="setting-card">
                     <div class="setting-row">
                         <div class="setting-info">
                             <h3>Auto Scroll</h3>
-                            <p>Automatically scroll the page to follow reading</p>
+                            <p>Scroll to follow the reading</p>
                         </div>
-                        <label class="toggle">
-                            <input type="checkbox" id="autoScrollEnabled" checked>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="autoScrollEnabled">
                             <span class="toggle-slider"></span>
                         </label>
                     </div>
+                </div>
 
+                <div class="setting-card">
                     <div class="setting-row">
                         <div class="setting-info">
                             <h3>Scroll Behavior</h3>
@@ -265,56 +293,88 @@
                 </div>
             </section>
 
-            <!-- Keyboard Shortcuts -->
-            <section id="section-keyboard" class="settings-section">
+            <!-- Keyboard Shortcuts Section -->
+            <section id="section-shortcuts" class="settings-section">
                 <h1 class="section-title">Keyboard Shortcuts</h1>
 
-                <div class="settings-card">
-                    <div class="shortcut-row">
-                        <span class="shortcut-name">Read Selection</span>
-                        <span class="shortcut-keys">Ctrl + Shift + R</span>
+                <div class="feature-info">
+                    <h2>Quick Actions</h2>
+                    <p>Use these shortcuts to control VibeChrome quickly</p>
+                </div>
+
+                <div class="shortcuts-list">
+                    <div class="shortcut-item">
+                        <span class="shortcut-label">Read selected text</span>
+                        <div class="shortcut-keys">
+                            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>
+                        </div>
                     </div>
-                    <div class="shortcut-row">
-                        <span class="shortcut-name">Save Bookmark</span>
-                        <span class="shortcut-keys">Ctrl + Shift + B</span>
+                    <div class="shortcut-item">
+                        <span class="shortcut-label">Save bookmark</span>
+                        <div class="shortcut-keys">
+                            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>
+                        </div>
                     </div>
-                    <div class="shortcut-row">
-                        <span class="shortcut-name">Play / Pause</span>
-                        <span class="shortcut-keys">Ctrl + Shift + Space</span>
+                    <div class="shortcut-item">
+                        <span class="shortcut-label">Play / Pause</span>
+                        <div class="shortcut-keys">
+                            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Space</kbd>
+                        </div>
                     </div>
-                    <div class="shortcut-row">
-                        <span class="shortcut-name">Stop Reading</span>
-                        <span class="shortcut-keys">Escape</span>
+                    <div class="shortcut-item">
+                        <span class="shortcut-label">Stop reading</span>
+                        <div class="shortcut-keys">
+                            <kbd>Esc</kbd>
+                        </div>
                     </div>
                 </div>
 
-                <p class="settings-hint">To customize extension shortcuts, visit <a href="#"
-                        id="openShortcuts">chrome://extensions/shortcuts</a></p>
+                <a href="#" class="link-btn" id="openShortcuts">Customize shortcuts in Chrome →</a>
             </section>
 
-            <!-- Player Visibility -->
-            <section id="section-player" class="settings-section">
+            <!-- Player Visibility Section -->
+            <section id="section-visibility" class="settings-section">
                 <h1 class="section-title">Player Visibility</h1>
 
-                <div class="settings-card">
+                <div class="feature-info">
+                    <h2>Control What You See</h2>
+                    <p>Choose which VibeChrome elements appear on websites</p>
+                </div>
+
+                <div class="setting-card">
                     <div class="setting-row">
                         <div class="setting-info">
-                            <h3>Floating Button</h3>
-                            <p>Show the "Read" button when selecting text</p>
+                            <h3>Floating "Read" Button</h3>
+                            <p>Shows when you select text</p>
                         </div>
-                        <label class="toggle">
-                            <input type="checkbox" id="floatingButtonEnabled" checked>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="floatingButtonEnabled">
                             <span class="toggle-slider"></span>
                         </label>
                     </div>
+                </div>
 
+                <div class="setting-card">
                     <div class="setting-row">
                         <div class="setting-info">
                             <h3>Reading Overlay</h3>
-                            <p>Show the sentence overlay while reading</p>
+                            <p>Shows text while reading</p>
                         </div>
-                        <label class="toggle">
-                            <input type="checkbox" id="overlayEnabled" checked>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="overlayEnabled">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="setting-card">
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <h3>"Listen to Page" Top Bar</h3>
+                            <p>Shows at top of every page</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="topBarEnabled">
                             <span class="toggle-slider"></span>
                         </label>
                     </div>

@@ -1,75 +1,95 @@
 /* VibeChrome Content Script Styles - Vedabase Light Theme */
 
 /* ============================================
-   TOP BAR - "Listen to This Page"
+   TOP BAR - Modern Floating Pill Design
    ============================================ */
 .vibechrome-top-bar {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-120px);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #1a1410, #2a2018);
+    gap: 12px;
+    padding: 8px 12px 8px 8px;
+    background: rgba(26, 20, 16, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    border-radius: 50px;
     z-index: 2147483646;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    transform: translateY(-100%);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 2px 8px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .vibechrome-top-bar.visible {
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
 }
 
-.vibechrome-topbar-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
+.vibechrome-top-bar:hover {
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.35),
+        0 4px 12px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .vibechrome-topbar-play {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
     border: none;
     border-radius: 50%;
-    background: linear-gradient(135deg, #8b4513, #d2691e);
+    background: linear-gradient(135deg, #d2691e, #8b4513);
     color: white;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
+    box-shadow: 0 4px 12px rgba(210, 105, 30, 0.4);
+    flex-shrink: 0;
 }
 
 .vibechrome-topbar-play:hover {
     transform: scale(1.08);
-    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.5);
+    box-shadow: 0 6px 16px rgba(210, 105, 30, 0.5);
+}
+
+.vibechrome-topbar-play:active {
+    transform: scale(0.95);
 }
 
 .vibechrome-topbar-play svg {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
 }
 
 .vibechrome-topbar-play .vibechrome-play-icon {
-    margin-left: 3px;
+    margin-left: 2px;
 }
 
 .vibechrome-topbar-text {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
-    color: #faf6f1;
+    color: rgba(255, 255, 255, 0.95);
+    white-space: nowrap;
+    padding-right: 4px;
 }
 
-.vibechrome-topbar-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.vibechrome-topbar-time {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+}
+
+.vibechrome-topbar-divider {
+    width: 1px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 0 4px;
 }
 
 .vibechrome-topbar-btn,
@@ -77,26 +97,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     border: none;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.7);
     cursor: pointer;
     transition: all 0.2s ease;
+    flex-shrink: 0;
 }
 
 .vibechrome-topbar-btn:hover,
 .vibechrome-topbar-close:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     color: white;
 }
 
 .vibechrome-topbar-btn svg,
 .vibechrome-topbar-close svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
 }
 
 /* Floating Read Button */
